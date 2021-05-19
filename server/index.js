@@ -8,11 +8,13 @@ import postRoutes from './routes/posts.js';
 // initialize the express app
 const app = express();
 
-app.use('/posts', postRoutes);
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));
 app.use(cors());
+
+// Always put the routes below the cors code to prevent network errors.
+app.use('/posts', postRoutes);
 
 
 // to remove later this is put here for development purposes
