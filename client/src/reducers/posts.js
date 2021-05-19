@@ -1,5 +1,6 @@
+// eslint-disable-next-line
 export default (posts = [], action) => {
-    switch (action.key) {
+    switch (action.type) {
         case 'FETCH_ALL':
             return action.payload;
         case 'CREATE':

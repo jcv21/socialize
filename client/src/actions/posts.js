@@ -4,7 +4,7 @@ import * as api from '../api';
 export const getPosts = () => async (dispatch) => {
     try {
         const { data } = await api.fetchPosts();
-    
+
         dispatch({ 
             type: 'FETCH_ALL', 
             payload: data 
@@ -25,6 +25,6 @@ export const createPosts = (post) => async (dispatch) => {
         });
     } 
     catch (e) {
-        console.log(e);
+        console.log(e.message);
     }
 };
