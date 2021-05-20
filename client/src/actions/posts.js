@@ -5,8 +5,6 @@ export const getPost = () => async (dispatch) => {
     try {
         const { data } = await api.fetchPosts();
 
-        console.log(data);
-
         dispatch({ 
             type: 'FETCH_ALL', 
             payload: data 
@@ -55,6 +53,6 @@ export const deletePost = (id) => async (dispatch) => {
         });
     } 
     catch (e) {
-        console.log(e);
+        console.log(e.message);
     }
 };
