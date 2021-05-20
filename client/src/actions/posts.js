@@ -1,9 +1,11 @@
 import * as api from '../api';
 
 // Action Creators
-export const getPosts = () => async (dispatch) => {
+export const getPost = () => async (dispatch) => {
     try {
         const { data } = await api.fetchPosts();
+
+        console.log(data);
 
         dispatch({ 
             type: 'FETCH_ALL', 
@@ -17,7 +19,7 @@ export const getPosts = () => async (dispatch) => {
 
 export const createPost = (post) => async (dispatch) => {
     try {
-        const { data } = await api.createPosts(post);
+        const { data } = await api.createPost(post);
  
         dispatch({ 
             type: 'CREATE', 
@@ -31,7 +33,7 @@ export const createPost = (post) => async (dispatch) => {
 
 export const updatePost = (id, post) => async (dispatch) => {
     try {
-        const { data } = await api.updatePosts(id, post);
+        const { data } = await api.updatePost(id, post);
 
         dispatch({ 
             type: 'UPDATE', 
@@ -40,5 +42,19 @@ export const updatePost = (id, post) => async (dispatch) => {
     } 
     catch (e) {
         console.log(e.message);
+    }
+};
+
+export const deletePost = (id) => async (dispatch) => {
+    try {
+        await api.deletePost(id);    
+
+        dispatch({
+            type: 'DELETE',
+            payload: id
+        });
+    } 
+    catch (e) {
+        console.log(e);
     }
 };
