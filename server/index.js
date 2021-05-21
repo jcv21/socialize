@@ -18,6 +18,9 @@ app.use(cors());
 // Always put the routes below the cors code to prevent network errors.
 app.use('/posts', postRoutes);
 
+app.get('/', (req, res) => {
+    res.send('Hello to Socialize API');
+});
 
 // to remove later this is put here for development purposes
 const PORT = process.env.PORT || 5000;
