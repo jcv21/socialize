@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const url = 'https://my-socialize-project.herokuapp.com/posts';
+/* const url = 'https://my-socialize-project.herokuapp.com/posts'; */
+const url = 'http://localhost:3000/posts';
 
 export const fetchPosts = () => axios.get(url);
 export const createPost = (newPosts) => axios.post(url, newPosts);
