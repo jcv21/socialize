@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import postRoutes from './routes/posts.js';
-
+import userRoutes from './routes/users.js';
 
 // initialize the express app
 const app = express();
@@ -17,6 +17,7 @@ app.use(cors());
 
 // Always put the routes below the cors code to prevent network errors.
 app.use('/posts', postRoutes);
+app.use('/user', userRoutes);
 
 app.get('/', (req, res) => {
     res.send('Hello to Socialize API');
