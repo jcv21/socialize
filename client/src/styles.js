@@ -16,13 +16,13 @@ export default makeStyles((theme) => ({
     image: {
         marginLeft: '15px',
     },
-    [theme.breakpoints.down('xs')]:{
+    [theme.breakpoints.down('xs')]: {
         mainContainer: {
-            flexDirection: 'column-reverse'
+            flexDirection: 'column-reverse',
         },
         heading: {
             color: 'rgba(0,183,255, 1)',
-            fontSize: '2.75rem'
+            fontSize: '2.75rem',
         },
     },
 }));
