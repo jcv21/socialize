@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { AppBar, Avatar, Button, Toolbar, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 import useStyles from './styles';
+import * as actionType from '../../constants/actionTypes';
 import memories from '../../images/memories.png';
 
 const Navbar = () => {
@@ -14,9 +15,9 @@ const Navbar = () => {
     const location = useLocation();
 
     const logout = () => {
-        dispatch({ type: 'LOGOUT' });
+        dispatch({ type: actionType.LOGOUT });
 
-        history.push('/');
+        history.push('/auth');
 
         setUser(null);
     };
@@ -27,11 +28,11 @@ const Navbar = () => {
         // JWT ...
         if (token){
             const decodedToken = decode(token);
-
             if (decodedToken.exp * 1000 < new Date().getTime()) logout();
         }
 
         setUser(JSON.parse(localStorage.getItem('profile')));
+        // eslint-disable-next-line
     }, [location]);
 
     return (
