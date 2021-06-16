@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5000' });
+const server = 'https://my-socialize-project.herokuapp.com';
+const API = axios.create({ baseURL: server });
 
 API.interceptors.request.use((req) => {
     if(localStorage.getItem('profile')){
